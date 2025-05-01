@@ -1,32 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>View Patients</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>View Patients</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Patient List</h1>
-    <table border="1" style="margin: 0 auto;">
-        <thead>
-            <tr>
-                <th>Patient ID</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Gender</th>
-                <th>Admission Date</th>
-            </tr>
-        </thead>
-        <tbody>
-            <!-- Sample static data -->
-            <tr>
-                <td>P001</td>
-                <td>Aryan Kumar</td>
-                <td>30</td>
-                <td>Male</td>
-                <td>2025-05-01</td>
-            </tr>
-        </tbody>
-    </table>
+  <h1>Patients List</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th><th>Name</th><th>Age</th><th>Gender</th><th>Admission Date</th>
+      </tr>
+    </thead>
+    <tbody id="patientTableBody"></tbody>
+  </table>
+
+  <script>
+    const patients = [
+      { id: 101, name: 'Ravi Kumar', age: 30, gender: 'Male', admission: '2025-04-25' },
+      { id: 102, name: 'Anjali Sharma', age: 24, gender: 'Female', admission: '2025-04-26' },
+      { id: 103, name: 'Suresh Singh', age: 45, gender: 'Male', admission: '2025-04-23' },
+      { id: 104, name: 'Pooja Verma', age: 35, gender: 'Female', admission: '2025-04-20' },
+      { id: 105, name: 'Vikas Jha', age: 28, gender: 'Male', admission: '2025-04-19' },
+      { id: 106, name: 'Punya shree', age: 32, gender: 'Female', admission: '2025-04-21' },
+    ];
+
+    const tableBody = document.getElementById("patientTableBody");
+    patients.forEach(p => {
+      const row = `<tr>
+        <td>${p.id}</td><td>${p.name}</td><td>${p.age}</td><td>${p.gender}</td><td>${p.admission}</td>
+      </tr>`;
+      tableBody.innerHTML += row;
+    });
+  </script>
 </body>
 </html>
